@@ -87,13 +87,26 @@ void push()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
-
+	if (topo == NULL) {
+		topo = novo;
+	}
+	else {
+		NO* aux = novo;
+		aux->prox = topo;
+		topo = aux;
+	}
 }
 
 void pop()
 {
-
-	
-
+	if (topo == NULL) {
+		cout << "Nao existe elementos aqui" << endl;
+	}
+	else {
+		NO* aux = topo;
+		topo = topo->prox;
+		cout << "Elemento Removido: " << aux->valor << endl;
+		free(aux);
+	}
 }
 
